@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Tan4iki</name>
+    <description>TDS game</description>
+    <version>1.0</version>
+    <author>dzanis</author>
+    <author-email></author-email>
+    <author-website></author-website>
+    <app-id>1</app-id>
+    <unique-id>3k8y8jenijj4j</unique-id>
+    <saved-with-version>25000</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>640</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">No</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Hide address bar">No</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use iOS retina display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="Mouse" sid="850692574509354">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="EnemyText" sid="784378774127293">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="Pin" sid="633282952280840">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <container>
+                <type>EnemyText</type>
+                <type>EnemyTank</type>
+            </container>
+        </object-type>
+        <object-type name="Keyboard" sid="525022880346466">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="PlayerTank" sid="972925352598147">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Health" sid="362989170999728" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="8Direction" sid="504763366055177">
+                    <behavior id="EightDir" />
+                </behavior-type>
+                <behavior-type name="BoundToLayout" sid="349109928516197">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="ScrollTo" sid="440291148231629">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="295619866307502" speed="5">
+                    <frame duration="1" hotspotX="0.52" hotspotY="0.529412" original-source="C:\Users\zan\Downloads\Tank4iki\playerTank.png">
+                        <collision-poly>
+                            <point x="0" y="0.944853" />
+                            <point x="0" y="0.0551466" />
+                            <point x="0.96" y="0.0551488" />
+                            <point x="0.96" y="0.944853" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Shell" sid="138768364027960">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="455983650157057">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="834836970017779">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="558065947689939" speed="5">
+                    <frame duration="1" hotspotX="1" hotspotY="0.5" original-source="C:\Users\zan\Downloads\Tank4iki\shell.png">
+                        <collision-poly>
+                            <point x="0" y="0.29375" />
+                            <point x="0.998355" y="0.29375" />
+                            <point x="1" y="0.665625" />
+                            <point x="0.00493421" y="0.665625" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TiledBackground" sid="843227468395117">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\zan\Downloads\Tank4iki\tile.png" />
+        </object-type>
+        <object-type name="EnemyTank" sid="307931162257183">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Health" sid="928993405151905" type="number" />
+                <instance-variable name="state" sid="999751065559001" type="string" />
+                <instance-variable name="move" sid="381802308260706" type="string" />
+                <instance-variable name="speed" sid="549935469227703" type="number" />
+                <instance-variable name="rootate" sid="654003520581827" type="number" />
+                <instance-variable name="range" sid="985347030609035" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="LineOfSight" sid="934053519992409">
+                    <behavior id="LOS" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="597003879662879">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="Solid" sid="940254114611253">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Timer" sid="287917347858441">
+                    <behavior id="Timer" />
+                </behavior-type>
+            </behaviors>
+            <container>
+                <type>EnemyText</type>
+                <type>EnemyTank</type>
+            </container>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="560572567022784" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\zan\Downloads\Tank4iki\enemyTank.png">
+                        <collision-poly>
+                            <point x="0.166667" y="1" />
+                            <point x="0.208333" y="0" />
+                            <point x="0.5" y="0" />
+                            <point x="0.791667" y="0" />
+                            <point x="0.833333" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="EnemyShell" sid="632370977037694">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="333818228226036">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="298333712400997">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="527648624089714" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\zan\Downloads\Tank4iki\shell.png">
+                        <collision-poly>
+                            <point x="0.583333" y="0.416667" />
+                            <point x="0.708333" y="0.5" />
+                            <point x="0.583333" y="0.583333" />
+                            <point x="0.416667" y="0.583333" />
+                            <point x="0.291667" y="0.5" />
+                            <point x="0.416667" y="0.416667" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Tilemap" sid="696559005963110">
+            <plugin id="Tilemap" />
+            <instance-variables>
+                <instance-variable name="tileX" sid="859091970019495" type="number" />
+                <instance-variable name="tileY" sid="159475897656849" type="number" />
+                <instance-variable name="index" sid="482704356572163" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Solid" sid="850409093685123">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="C:\Users\zan\Downloads\Tank4iki\walls.png" />
+            <tiles />
+        </object-type>
+        <object-type name="Tilemap2" sid="564700202628462">
+            <plugin id="Tilemap" />
+            <texture original-source="C:\Users\zan\Downloads\Tank4iki\tile.png" />
+            <tiles />
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Layout 1.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event sheet 1.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Mouse" uid="16" />
+        <global-instance type="Keyboard" uid="17" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

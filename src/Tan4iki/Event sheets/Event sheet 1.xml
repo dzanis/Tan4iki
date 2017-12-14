@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <comment>If a bullet hits an enemy, subtract 10 from its health.  When an enemy runs out of health, destroy it.</comment>
+        <comment>Allow WASD as alternate controls to the default arrow keys.</comment>
+        <event-block any="1" sid="108748638963745">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="968327527796039" type="Shell">
+                    <param id="0" name="Object">EnemyTank</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="676079075687816" type="Shell" />
+                <action id="-12" name="Subtract from" sid="937610374704666" type="EnemyTank">
+                    <param id="0" name="Instance variable">Health</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="361648720365191">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="312367357045826" type="Shell">
+                    <param id="0" name="Object">Tilemap</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="325871959160302" type="Tilemap">
+                    <param id="0" name="Instance variable">tileX</param>
+                    <param id="1" name="Value">Tilemap.PositionToTileX(Shell.X)</param>
+                </action>
+                <action id="-10" name="Set value" sid="315401436069736" type="Tilemap">
+                    <param id="0" name="Instance variable">tileY</param>
+                    <param id="1" name="Value">Tilemap.PositionToTileY(Shell.Y)</param>
+                </action>
+                <action id="-9" name="Destroy" sid="487746315359237" type="Shell" />
+            </actions>
+            <sub-events>
+                <event-block sid="461826717531762">
+                    <conditions>
+                        <condition id="0" name="Compare tile at" sid="818338207435826" type="Tilemap">
+                            <param id="0" name="Tile X">Tilemap.tileX</param>
+                            <param id="1" name="Tile Y">Tilemap.tileY</param>
+                            <param id="2" name="Comparison">0</param>
+                            <param id="3" name="Tile">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set tile" sid="449599449093182" type="Tilemap">
+                            <param id="0" name="Tile X">Tilemap.tileX</param>
+                            <param id="1" name="Tile Y">Tilemap.tileY</param>
+                            <param id="2" name="Tile">1</param>
+                            <param id="3" name="State">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="915808150396972" type="Tilemap">
+                            <param id="0" name="Instance variable">tileY</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="110636046568341" type="Tilemap">
+                            <param id="0" name="Instance variable">tileX</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="765261794801006">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="872734207756187" type="System" />
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="370192477423991">
+                    <conditions>
+                        <condition id="0" name="Compare tile at" sid="875816751619344" type="Tilemap">
+                            <param id="0" name="Tile X">Tilemap.tileX</param>
+                            <param id="1" name="Tile Y">Tilemap.tileY</param>
+                            <param id="2" name="Comparison">0</param>
+                            <param id="3" name="Tile">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set tile" sid="278088288453908" type="Tilemap">
+                            <param id="0" name="Tile X">Tilemap.tileX</param>
+                            <param id="1" name="Tile Y">Tilemap.tileY</param>
+                            <param id="2" name="Tile">2</param>
+                            <param id="3" name="State">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="210242956991043" type="Tilemap">
+                            <param id="0" name="Instance variable">tileY</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="774962401297379" type="Tilemap">
+                            <param id="0" name="Instance variable">tileX</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="787982984754872">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="864611159028060" type="System" />
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="934301390251604">
+                    <conditions>
+                        <condition id="0" name="Compare tile at" sid="431588620295046" type="Tilemap">
+                            <param id="0" name="Tile X">Tilemap.tileX</param>
+                            <param id="1" name="Tile Y">Tilemap.tileY</param>
+                            <param id="2" name="Comparison">0</param>
+                            <param id="3" name="Tile">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Erase tile" sid="553653259197612" type="Tilemap">
+                            <param id="0" name="Tile X">Tilemap.tileX</param>
+                            <param id="1" name="Tile Y">Tilemap.tileY</param>
+                        </action>
+                        <action id="1" name="Set tile" sid="583121240004952" type="Tilemap2">
+                            <param id="0" name="Tile X">Tilemap.tileX</param>
+                            <param id="1" name="Tile Y">Tilemap.tileY</param>
+                            <param id="2" name="Tile">3</param>
+                            <param id="3" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="346969071856589">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="536429774418168" type="EnemyShell">
+                    <param id="0" name="Object">Tilemap</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="924314076257190" type="EnemyShell" />
+            </actions>
+        </event-block>
+        <event-group description="" sid="873157087198226" title="EnemyAI">
+            <sub-events>
+                <event-block sid="764497485859423">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="591148397219873" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="144527095073316">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="141493941494532" type="System">
+                                    <param id="0" name="Object">EnemyTank</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="901030971756683" type="EnemyText">
+                                    <param id="0" name="X">EnemyTank.X</param>
+                                    <param id="1" name="Y">EnemyTank.Y - 30</param>
+                                </action>
+                                <action id="0" name="Set text" sid="893579861699134" type="EnemyText">
+                                    <param id="0" name="Text">EnemyTank.state</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="121692774219139" type="EnemyText">
+                                    <param id="0" name="Pin to">EnemyTank</param>
+                                    <param id="1" name="Mode">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="742167686520779" type="EnemyTank">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Value">choose(&quot;patrol&quot;,&quot;warning&quot;,&quot;attack&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="337356944719992">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="734108428308439" type="System">
+                            <param id="0" name="Object">EnemyTank</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="909387217180331">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="848593415695449" type="EnemyTank">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="277604882332275" type="EnemyTank" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="500453141464821">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="661085662464798" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="301090571748789" type="EnemyTank">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Value">&quot;patrol&quot;</param>
+                                </action>
+                                <action id="0" name="Set text" sid="616913683724712" type="EnemyText">
+                                    <param id="0" name="Text">&quot; &quot; &amp; EnemyTank.Health</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="321890957486170">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="462300447836113" type="System">
+                                    <param id="0" name="First value">distance(PlayerTank.X,PlayerTank.Y,EnemyTank.X,EnemyTank.Y) </param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">EnemyTank.range</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="721365578314043" type="EnemyTank">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Value">&quot;warning&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="265426382295474" type="EnemyTank">
+                                    <param id="0" name="Instance variable">range</param>
+                                    <param id="1" name="Value">1000</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="892071387754093">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="889318246502659" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="711694650392052" type="EnemyTank">
+                                    <param id="0" name="Instance variable">range</param>
+                                    <param id="1" name="Value">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="765645773568963">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="840048321758872" type="EnemyTank">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;warning&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="907996301361566">
+                                    <conditions>
+                                        <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="143179087834701" type="EnemyTank">
+                                            <param id="0" name="Object">PlayerTank</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="792610460591640" type="EnemyTank">
+                                            <param id="0" name="Instance variable">state</param>
+                                            <param id="1" name="Value">&quot;attack&quot;</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="113651969563092" type="EnemyText">
+                                            <param id="0" name="Text">&quot; &quot; &amp; EnemyTank.state</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="115245806865469">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="733152723470067" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="577652049082410" type="EnemyTank">
+                                            <param id="0" name="Instance variable">range</param>
+                                            <param id="1" name="Value">100</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="532756171115519">
+                                    <conditions>
+                                        <condition id="-1" name="Every tick" sid="979985274030083" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-8" name="Set angle" sid="981278623746382" type="EnemyTank">
+                                            <param id="0" name="Angle">Self.Angle + EnemyTank.rootate * dt</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="492550860027331">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="923357894044115" type="EnemyTank">
+                                            <param id="0" name="Instance variable">move</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;left&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="749294917855130" type="EnemyTank">
+                                            <param id="0" name="Instance variable">rootate</param>
+                                            <param id="1" name="Value">-100</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="136563502398396">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="591821799800667" type="System">
+                                                    <param id="0" name="First value">EnemyTank.Angle </param>
+                                                    <param id="1" name="Comparison">2</param>
+                                                    <param id="2" name="Second value">10</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="164951827845253" type="EnemyTank">
+                                                    <param id="0" name="Instance variable">move</param>
+                                                    <param id="1" name="Value">&quot;right&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="123025514775015">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="182317940284983" type="EnemyTank">
+                                            <param id="0" name="Instance variable">move</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;right&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="174684960755460" type="EnemyTank">
+                                            <param id="0" name="Instance variable">rootate</param>
+                                            <param id="1" name="Value">100</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="680145369024783">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="376973793508900" type="System">
+                                                    <param id="0" name="First value">EnemyTank.Angle </param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Second value">350</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="776390166801305" type="EnemyTank">
+                                                    <param id="0" name="Instance variable">move</param>
+                                                    <param id="1" name="Value">&quot;left&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="995276268361698">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="756864140483732" type="EnemyTank">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;attack&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="463035948750325" type="EnemyTank">
+                                    <param id="0" name="Speed">100</param>
+                                </action>
+                                <action id="-22" name="Set angle toward position" sid="961296672064529" type="EnemyTank">
+                                    <param id="0" name="X">PlayerTank.X</param>
+                                    <param id="1" name="Y">PlayerTank.Y</param>
+                                </action>
+                                <action behavior="LineOfSight" id="0" name="Set range" sid="514388012899502" type="EnemyTank">
+                                    <param id="0" name="Range">EnemyTank.range</param>
+                                </action>
+                                <action behavior="LineOfSight" id="1" name="Set cone of view" sid="393052473533819" type="EnemyTank">
+                                    <param id="0" name="Cone of view">360</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="520105900924869">
+                                    <conditions>
+                                        <condition id="-6" name="Every X seconds" sid="698918715052207" type="System">
+                                            <param id="0" name="Interval (seconds)">0.5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="746129151635153" type="EnemyTank">
+                                            <param id="0" name="Object">EnemyShell</param>
+                                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                                            <param id="2" name="Image point">&quot;ShootPaint&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="217483185954083">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="602741341371216" type="EnemyTank">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;patrol&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="460238824131613" type="EnemyTank">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                                <action behavior="LineOfSight" id="0" name="Set range" sid="760067804253856" type="EnemyTank">
+                                    <param id="0" name="Range">EnemyTank.range</param>
+                                </action>
+                                <action behavior="LineOfSight" id="1" name="Set cone of view" sid="685461904557414" type="EnemyTank">
+                                    <param id="0" name="Cone of view">90</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="772592239684538">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="476500692549591" type="EnemyTank">
+                                            <param id="0" name="Instance variable">move</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;left&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-1" name="Set X" sid="551372272335513" type="EnemyTank">
+                                            <param id="0" name="X">Self.X - EnemyTank.speed * dt</param>
+                                        </action>
+                                        <action id="-8" name="Set angle" sid="131338601978108" type="EnemyTank">
+                                            <param id="0" name="Angle">180</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="765046216273572">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="410965346313814" type="EnemyTank">
+                                            <param id="0" name="Instance variable">move</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;right&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-1" name="Set X" sid="937727900049523" type="EnemyTank">
+                                            <param id="0" name="X">Self.X +EnemyTank.speed * dt</param>
+                                        </action>
+                                        <action id="-8" name="Set angle" sid="316439125433472" type="EnemyTank">
+                                            <param id="0" name="Angle">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="121843265949509">
+                                    <conditions>
+                                        <condition id="0" name="On collision with another object" sid="806525391663650" type="EnemyTank">
+                                            <param id="0" name="Object">Tilemap</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="183010246026457">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="907221676273230" type="EnemyTank">
+                                                    <param id="0" name="Instance variable">move</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;left&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="641977384823655" type="EnemyTank">
+                                                    <param id="0" name="Instance variable">move</param>
+                                                    <param id="1" name="Value">&quot;right&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="366072632135853">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="691918086086244" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="287274876463173" type="EnemyTank">
+                                                    <param id="0" name="Instance variable">move</param>
+                                                    <param id="1" name="Value">&quot;left&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Управление танком героя" sid="156141149004157" title="InputControl">
+            <sub-events>
+                <event-block sid="895790708198151">
+                    <conditions>
+                        <condition id="2" name="Mouse button is down" sid="818228679907387" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                        </condition>
+                        <condition id="-6" name="Every X seconds" sid="434767381908208" type="System">
+                            <param id="0" name="Interval (seconds)">0.5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="660709612028049" type="PlayerTank">
+                            <param id="0" name="Object">Shell</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">&quot;ShootPoint&quot;</param>
+                        </action>
+                        <action id="-18" name="Rotate clockwise" sid="872084606908775" type="Shell">
+                            <param id="0" name="Degrees">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="989314239530147">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="496022330459857" type="Keyboard">
+                            <param id="0" name="Key">32</param>
+                        </condition>
+                        <condition id="-6" name="Every X seconds" sid="261302030832752" type="System">
+                            <param id="0" name="Interval (seconds)">0.5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="376882038571826" type="PlayerTank">
+                            <param id="0" name="Object">Shell</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">&quot;ShootPoint&quot;</param>
+                        </action>
+                        <action id="-18" name="Rotate clockwise" sid="211283127977216" type="Shell">
+                            <param id="0" name="Degrees">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="759098110971880">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="335856642949931" type="Keyboard">
+                            <param id="0" name="Key">87</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="167224824283214" type="PlayerTank">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="568039142110297">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="645076111344781" type="Keyboard">
+                            <param id="0" name="Key">83</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="561941214405573" type="PlayerTank">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="941093324258256">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="160232023375303" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="219402038535739" type="PlayerTank">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="202934025836485">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="233019174799426" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="797468731619698" type="PlayerTank">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
